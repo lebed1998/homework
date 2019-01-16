@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar-items %}{% endblock %}
+
+
+{% block body %}
+    <h3 class="section-title text-center m-5">
+            Me
+    </h3>
+    {% if user.is_authenticated %}
+        <div class="form-group">
+            <a class="section-title font-weight-bold text-info" style="padding-right: 20px">Username: {{ user.username }}</a>
+        </div>
+        <div class="form-group">
+            <a class="section-title font-weight-bold text-info" style="padding-right: 20px">Mail: {{ user.email }}</a>
+        </div>
+        <div class="form-group">
+            <a class="section-title font-weight-bold text-info" style="padding-right: 20px">First name: {{ user.first_name }}</a>
+        </div>
+        <div class="form-group">
+            <a class="section-title font-weight-bold text-info" style="padding-right: 20px">Last name: {{ user.last_name }}</a>
+        </div>
+        <div class="form-group">
+            <img src="{% static "media/default.png"%}">
+        </div>
+        <button type="button" class="btn btn-primary btn-sm btn-pill" data-toggle="modal" data-target="#changeModal">
+            Change
+        </button>
+
+    {% endif %}
+{% endblock %}
